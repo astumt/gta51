@@ -3,791 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grand Theft Auto V - Официальный сайт</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dota 2 - Легендарная MOBA игра</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Сброс и базовые стили */
+        /* Базовые стили и сброс */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         html {
             scroll-behavior: smooth;
         }
-
+        
         body {
-            background-color: #0a0a0a;
-            color: #ffffff;
+            background-color: #0c0c0c;
+            color: #f0f0f0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        
+        /* Общие стили для секций */
         section {
             min-height: 100vh;
-            padding: 80px 0;
+            padding: 100px 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-
-        h1, h2, h3 {
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #ff4400, #ffaa00);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 5px 15px rgba(255, 68, 0, 0.3);
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            color: #ffaa00;
+            align-items: center;
             position: relative;
-            display: inline-block;
         }
-
-        h2:after {
+        
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
             height: 4px;
-            background: linear-gradient(90deg, #ff4400, #ffaa00);
+            background-color: #d1363a;
+            border-radius: 2px;
         }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #cccccc;
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
             max-width: 800px;
+            margin-bottom: 60px;
+            opacity: 0.9;
+            line-height: 1.8;
         }
-
+        
+        /* Кнопки */
         .btn {
             display: inline-block;
             padding: 15px 35px;
-            background: linear-gradient(90deg, #ff4400, #ffaa00);
+            background-color: #d1363a;
             color: white;
             text-decoration: none;
+            border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
             letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(255, 68, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid #d1363a;
+            cursor: pointer;
         }
-
+        
         .btn:hover {
+            background-color: transparent;
+            color: #d1363a;
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 68, 0, 0.4);
+            box-shadow: 0 10px 20px rgba(209, 54, 58, 0.3);
         }
-
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #d1363a;
+        }
+        
+        .btn-outline:hover {
+            background-color: #d1363a;
+            color: white;
+        }
+        
         /* Навигация */
-        .navbar {
+        nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background-color: rgba(10, 10, 10, 0.95);
-            padding: 20px 0;
-            z-index: 1000;
-            border-bottom: 2px solid #ff4400;
-        }
-
-        .nav-container {
+            padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
+            background-color: rgba(12, 12, 12, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
         }
-
+        
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: #ffaa00;
+            color: #d1363a;
             text-decoration: none;
             display: flex;
             align-items: center;
         }
-
+        
         .logo i {
             margin-right: 10px;
-            color: #ff4400;
+            font-size: 2.2rem;
         }
-
-        .nav-menu {
+        
+        .nav-links {
             display: flex;
             list-style: none;
         }
-
-        .nav-menu li {
-            margin-left: 30px;
+        
+        .nav-links li {
+            margin-left: 40px;
         }
-
-        .nav-menu a {
-            color: #ffffff;
+        
+        .nav-links a {
+            color: #f0f0f0;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
             position: relative;
-            padding: 5px 0;
         }
-
-        .nav-menu a:hover {
-            color: #ffaa00;
+        
+        .nav-links a:hover {
+            color: #d1363a;
         }
-
-        .nav-menu a:after {
+        
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #ff4400, #ffaa00);
-            transition: width 0.3s ease;
+            background-color: #d1363a;
+            transition: width 0.3s;
         }
-
-        .nav-menu a:hover:after {
+        
+        .nav-links a:hover::after {
             width: 100%;
         }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Главный баннер */
-        #home {
-            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), 
-                        url('https://newcdn.igromania.ru/mnt/games/7/0/4/3/1/e/11059/8454eea82c293751_original.webp');
+        
+        /* Герой секция */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
             background-size: cover;
             background-position: center;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        #home:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, #0a0a0a 100%);
+        
+        .hero-content {
+            max-width: 900px;
         }
-
-        .home-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
+        
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: white;
+            text-shadow: 0 0 15px rgba(209, 54, 58, 0.7);
         }
-
-        .home-content p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-        }
-
-        /* Персонажи */
-        .characters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .character-card {
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #333;
-        }
-
-        .character-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 68, 0, 0.2);
-            border-color: #ff4400;
-        }
-
-        .character-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .character-info {
-            padding: 25px;
-        }
-
-        .character-info h3 {
-            color: #ffaa00;
+        
+        .hero-subtitle {
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
+            color: #ccc;
         }
-
+        
         /* Особенности игры */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: #ffaa00;
-            box-shadow: 0 10px 20px rgba(255, 170, 0, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: #ff4400;
-            margin-bottom: 20px;
-        }
-
-        /* Галерея */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            height: 200px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(255, 68, 0, 0.8), transparent);
+        .features-container {
             display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Контакты и покупка */
-        .buy-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
-            margin-top: 40px;
-        }
-
-        .buy-card {
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            padding: 40px 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid #333;
-            transition: all 0.3s ease;
-        }
-
-        .buy-card:hover {
-            border-color: #ff4400;
-            transform: translateY(-10px);
-        }
-
-        .buy-card h3 {
-            color: #ffaa00;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #ff4400;
-            margin: 20px 0;
-        }
-
-        .platforms {
+            max-width: 1200px;
             margin-top: 30px;
         }
-
-        .platform-icon {
-            font-size: 2rem;
-            margin: 0 10px;
-            color: #666;
-            transition: color 0.3s ease;
+        
+        .feature-card {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            width: 350px;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            text-align: center;
         }
-
-        .platform-icon:hover {
-            color: #ff4400;
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            border-color: #d1363a;
+            box-shadow: 0 15px 30px rgba(209, 54, 58, 0.2);
         }
-
-        /* Форма подписки */
-        .subscribe-form {
-            max-width: 500px;
-            margin: 40px auto 0;
-        }
-
-        .form-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .form-input {
-            flex: 1;
-            padding: 15px;
-            background: #1a1a1a;
-            border: 2px solid #333;
-            border-radius: 5px;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #ff4400;
-        }
-
-        /* Футер */
-        .footer {
-            background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-            padding: 50px 0 20px;
-            border-top: 2px solid #ff4400;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            color: #ffaa00;
-            font-size: 1.3rem;
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #d1363a;
             margin-bottom: 20px;
         }
-
-        .footer-links {
-            list-style: none;
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #f0f0f0;
         }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #cccccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #ff4400;
-        }
-
-        .social-icons {
+        
+        /* Герои */
+        .heroes-container {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: #1a1a1a;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            color: white;
-            text-decoration: none;
+            gap: 30px;
+            max-width: 1200px;
+            margin-top: 30px;
+        }
+        
+        .hero-card {
+            background-color: rgba(40, 40, 40, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 350px;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
+        }
+        
+        .hero-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(209, 54, 58, 0.2);
+            border-color: #d1363a;
+        }
+        
+        .hero-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-info {
+            padding: 25px;
+        }
+        
+        .hero-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #f0f0f0;
+        }
+        
+        .hero-role {
+            color: #d1363a;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: rgba(209, 54, 58, 0.1);
+            border-radius: 20px;
+        }
+        
+        /* Турниры */
+        .tournaments-container {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 40px;
+        }
+        
+        .tournament-card {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #d1363a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             transition: all 0.3s ease;
         }
-
-        .social-icon:hover {
-            background: #ff4400;
-            transform: translateY(-3px);
+        
+        .tournament-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-
-        .copyright {
+        
+        .tournament-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .tournament-date {
+            color: #d1363a;
+            font-weight: 600;
+        }
+        
+        .prize-pool {
+            font-size: 1.5rem;
+            color: #ffd700;
+            font-weight: 700;
+        }
+        
+        /* Загрузка игры */
+        .download-content {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #666;
+            max-width: 800px;
+        }
+        
+        .platforms {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        
+        .platform {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .platform:hover {
+            transform: scale(1.05);
+            border: 1px solid #d1363a;
+        }
+        
+        .platform i {
+            font-size: 3rem;
+            color: #d1363a;
+            margin-bottom: 20px;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: #111;
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: #f0f0f0;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #d1363a;
+        }
+        
+        .copyright {
+            color: #777;
             font-size: 0.9rem;
         }
-
+        
         /* Адаптивность */
-        @media (max-width: 768px) {
-            h1 {
+        @media (max-width: 992px) {
+            .section-title {
                 font-size: 2.5rem;
             }
             
-            h2 {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 3.5rem;
             }
             
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
+            .nav-links {
+                display: none;
+            }
+            
+            .tournament-card {
                 flex-direction: column;
-                background-color: #0a0a0a;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 20px 0;
-                border-top: 2px solid #ff4400;
+                align-items: flex-start;
             }
             
-            .nav-menu.active {
-                left: 0;
+            .prize-pool {
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 30px;
             }
             
-            .nav-menu li {
-                margin: 15px 0;
+            .hero-title {
+                font-size: 2.8rem;
             }
             
-            .mobile-menu-btn {
-                display: block;
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 80px 20px;
             }
             
-            .form-group {
-                flex-direction: column;
+            .hero-title {
+                font-size: 2.2rem;
             }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+        }
+        
+        /* Анимации при прокрутке */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Навигация -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#home" class="logo">
-                <i class="fas fa-car"></i> GTA V
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#characters">Персонажи</a></li>
-                <li><a href="#features">Особенности</a></li>
-                <li><a href="#gallery">Галерея</a></li>
-                <li><a href="#buy">Купить</a></li>
-            </ul>
-        </div>
+    <nav>
+        <a href="#" class="logo">
+            <i class="fas fa-dragon"></i>
+            DOTA 2
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#features">Особенности</a></li>
+            <li><a href="#heroes">Герои</a></li>
+            <li><a href="#tournaments">Турниры</a></li>
+            <li><a href="#download">Скачать</a></li>
+        </ul>
     </nav>
-
-    <!-- Главный баннер -->
-    <section id="home">
-        <div class="container">
-            <div class="home-content">
-                <h1>Grand Theft Auto V</h1>
-                <p>Добро пожаловать в Лос-Сантос, город солнца, голливудских звезд и уличных банд. 
-                Окунитесь в эпическую историю о криминале, коррупции и выживании в самом опасном городе Америки.</p>
-                <a href="#buy" class="btn">Играть сейчас</a>
+    
+    <!-- Герой-секция -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title hidden">Dota 2</h1>
+            <p class="hero-subtitle hidden">Легендарная многопользовательская онлайн-арена сражений. Сражайтесь в эпических битвах вместе с миллионами игроков по всему миру.</p>
+            <div class="hidden">
+                <a href="#download" class="btn">Играть бесплатно</a>
+                <a href="#features" class="btn btn-outline" style="margin-left: 20px;">Узнать больше</a>
             </div>
         </div>
     </section>
-
-    <!-- Персонажи -->
-    <section id="characters">
-        <div class="container">
-            <h2>Главные персонажи</h2>
-            <p>Три разных героя, одна судьба. Познакомьтесь с уникальными персонажами, чьи жизни переплетаются в жестоком мире Лос-Сантоса.</p>
-            
-            <div class="characters-grid">
-                <div class="character-card">
-                    <img src="https://gamemag.ru/images/cache/News/News144919/6d68425c0c-1_350x250.jpg" alt="Майкл" class="character-img">
-                    <div class="character-info">
-                        <h3>Майкл</h3>
-                        <p>Бывший грабитель банков, живущий в роскоши благодаря сделке с ФБР. Семейные проблемы и скука заставляют его вернуться к старой жизни.</p>
-                    </div>
-                </div>
-                
-                <div class="character-card">
-                    <img src="https://img07.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/5/a0/5a01b8a0a63e7480783eb35392e5b25a.png" alt="Тревор" class="character-img">
-                    <div class="character-info">
-                        <h3>Тревор</h3>
-                        <p>Бывший военный летчик, живущий на окраине цивилизации. Непредсказуемый и опасный, он готов на все ради друзей и денег.</p>
-                    </div>
-                </div>
-                
-                <div class="character-card">
-                    <img src="https://cdn.kanobu.ru/articles/pics/fc565742-aed1-481b-bfb2-f54db9eedd39.jpg" alt="Франклин" class="character-img">
-                    <div class="character-info">
-                        <h3>Франклин</h3>
-                        <p>Молодой уличный гангстер, ищущий выход из гетто. Умный и амбициозный, он видит в Майкле шанс изменить свою жизнь.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Особенности игры -->
-    <section id="features">
-        <div class="container">
-            <h2>Ключевые особенности</h2>
-            <p>Откройте для себя безграничные возможности самого масштабного и детализированного мира в истории видеоигр.</p>
+    <section id="features" style="background-color: #111;">
+        <h2 class="section-title hidden">Особенности игры</h2>
+        <p class="section-subtitle hidden">Dota 2 предлагает уникальный игровой опыт с глубокой стратегией, разнообразными героями и постоянными обновлениями.</p>
+        
+        <div class="features-container">
+            <div class="feature-card hidden">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="feature-title">5 на 5 сражения</h3>
+                <p>Объединяйтесь с товарищами по команде, чтобы уничтожить вражескую древнюю крепость. Только слаженная командная работа приведет к победе.</p>
+            </div>
             
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-city"></i>
-                    </div>
-                    <h3>Огромный мир</h3>
-                    <p>Исследуйте Лос-Сантос и округ Блэйн - самый большой и детализированный открытый мир в истории серии GTA.</p>
+            <div class="feature-card hidden">
+                <div class="feature-icon">
+                    <i class="fas fa-user-plus"></i>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <h3>Тройной протагонист</h3>
-                    <p>Переключайтесь между тремя главными героями в любой момент, чтобы увидеть историю с разных точек зрения.</p>
+                <h3 class="feature-title">Более 120 героев</h3>
+                <p>Выбирайте из постоянно растущего списка уникальных героев, каждый со своими способностями и стилем игры. Найдите своего фаворита!</p>
+            </div>
+            
+            <div class="feature-card hidden">
+                <div class="feature-icon">
+                    <i class="fas fa-sync-alt"></i>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h3>GTA Online</h3>
-                    <p>Присоединяйтесь к миллионам игроков в постоянно развивающемся онлайн-мире Лос-Сантоса.</p>
+                <h3 class="feature-title">Регулярные обновления</h3>
+                <p>Игра постоянно развивается с новыми героями, предметами, механиками и событиями. Каждый сезон приносит что-то новое.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Популярные герои -->
+    <section id="heroes" style="background-color: #0c0c0c;">
+        <h2 class="section-title hidden">Популярные герои</h2>
+        <p class="section-subtitle hidden">Встречайте самых популярных и могущественных героев Dota 2. Каждый из них обладает уникальными способностями и ролью в игре.</p>
+        
+        <div class="heroes-container">
+            <div class="hero-card hidden">
+                <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');"></div>
+                <div class="hero-info">
+                    <h3 class="hero-name">Pudge</h3>
+                    <span class="hero-role">Инициатор / Контроль</span>
+                    <p>Легендарный мясник с умением зацеплять врагов своим крюком. Страшный противник на любой линии.</p>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>Транспорт</h3>
-                    <p>Более 500 транспортных средств: от спорткаров до самолетов и яхт. Кастомизируйте и улучшайте свои автомобили.</p>
+            </div>
+            
+            <div class="hero-card hidden">
+                <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80');"></div>
+                <div class="hero-info">
+                    <h3 class="hero-name">Invoker</h3>
+                    <span class="hero-role">Маг / Нукер</span>
+                    <p>Мастер стихий с доступом к 10 различным заклинаниям. Один из самых сложных и мощных героев в игре.</p>
+                </div>
+            </div>
+            
+            <div class="hero-card hidden">
+                <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');"></div>
+                <div class="hero-info">
+                    <h3 class="hero-name">Juggernaut</h3>
+                    <span class="hero-role">Керри / Пушер</span>
+                    <p>Свирепый воин, неуязвимый во время своего ультимативного умения. Идеален для новичков и профессионалов.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Галерея -->
-    <section id="gallery">
-        <div class="container">
-            <h2>Галерея игрового мира</h2>
-            <p>Взгляните на захватывающие дух пейзажи и эпические моменты из Grand Theft Auto V.</p>
+    
+    <!-- Турниры -->
+    <section id="tournaments" style="background-color: #111;">
+        <h2 class="section-title hidden">Киберспортивные турниры</h2>
+        <p class="section-subtitle hidden">Dota 2 имеет одну из самых больших киберспортивных сцен в мире с турнирами на многомиллионные призовые фонды.</p>
+        
+        <div class="tournaments-container">
+            <div class="tournament-card hidden">
+                <div class="tournament-info">
+                    <h3>The International 2023</h3>
+                    <p class="tournament-date">Октябрь 2023 | Сиэтл, США</p>
+                    <p>Крупнейший турнир года по Dota 2 с рекордным призовым фондом.</p>
+                </div>
+                <div class="prize-pool">$40,000,000</div>
+            </div>
             
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://preview.redd.it/los-santos-at-night-is-still-impressive-v0-7hus2smzhntc1.png?auto=webp&s=18b0e2ede455fa5f5321c331ebe30678fcb02fdd" alt="Городской пейзаж">
-                    <div class="gallery-overlay">
-                        <h4>Ночной Лос-Сантос</h4>
-                    </div>
+            <div class="tournament-card hidden">
+                <div class="tournament-info">
+                    <h3>EPIC League 2023</h3>
+                    <p class="tournament-date">Август 2023 | Онлайн</p>
+                    <p>Престижный онлайн-турнир с участием лучших команд мира.</p>
                 </div>
-                
-                <div class="gallery-item">
-                    <img src="https://media.rockstargames.com/rockstargames/img/global/news/upload/actual_1364387769.jpg" alt="Экшен сцена">
-                    <div class="gallery-overlay">
-                        <h4>Экшен-моменты</h4>
-                    </div>
+                <div class="prize-pool">$500,000</div>
+            </div>
+            
+            <div class="tournament-card hidden">
+                <div class="tournament-info">
+                    <h3>Dota Pro Circuit 2023</h3>
+                    <p class="tournament-date">Май - Сентябрь 2023 | Разные локации</p>
+                    <p>Сезонные турниры, определяющие участников The International.</p>
                 </div>
-                
-                <div class="gallery-item">
-                    <img src="https://images.steamusercontent.com/ugc/934941898170819034/D4D6CCFBC1E4675F7B6D397885E7BEA8633CB5C9/" alt="Природа">
-                    <div class="gallery-overlay">
-                        <h4>Природа округа Блэйн</h4>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://media-rockstargames-com.akamaized.net/tina-uploads/posts/25o1829o5o4993/01af2a18bc64c2af9d3b2808f61c40ad985a89bc.jpg" alt="Транспорт">
-                    <div class="gallery-overlay">
-                        <h4>Кастомизация транспорта</h4>
-                    </div>
-                </div>
+                <div class="prize-pool">$2,800,000</div>
             </div>
         </div>
     </section>
-
-    <!-- Покупка и контакты -->
-    <section id="buy">
-        <div class="container">
-            <h2>Присоединяйтесь к игре</h2>
-            <p>Выберите свою версию игры и начните эпическое приключение в Лос-Сантосе прямо сейчас!</p>
+    
+    <!-- Скачать игру -->
+    <section id="download" style="background-color: #0c0c0c;">
+        <div class="download-content">
+            <h2 class="section-title hidden">Начни играть бесплатно</h2>
+            <p class="section-subtitle hidden">Присоединяйтесь к миллионам игроков по всему миру. Скачайте Dota 2 совершенно бесплатно и начните свой путь к победе уже сегодня!</p>
             
-            <div class="buy-options">
-                <div class="buy-card">
-                    <h3>Стандартная версия</h3>
-                    <p>Полная версия игры GTA V с доступом к GTA Online</p>
-                    <div class="price">$29.99</div>
-                    <a href="#" class="btn">Купить сейчас</a>
-                    <div class="platforms">
-                        <i class="fab fa-windows platform-icon"></i>
-                        <i class="fab fa-playstation platform-icon"></i>
-                        <i class="fab fa-xbox platform-icon"></i>
-                    </div>
+            <div class="platforms">
+                <div class="platform hidden">
+                    <i class="fab fa-windows"></i>
+                    <h3>Windows</h3>
+                    <p>Скачать для Windows</p>
                 </div>
                 
-                <div class="buy-card">
-                    <h3>Премиум издание</h3>
-                    <p>GTA V + бонусный игровой контент + начальный бонус для GTA Online</p>
-                    <div class="price">$49.99</div>
-                    <a href="#" class="btn">Купить сейчас</a>
-                    <div class="platforms">
-                        <i class="fab fa-windows platform-icon"></i>
-                        <i class="fab fa-playstation platform-icon"></i>
-                        <i class="fab fa-xbox platform-icon"></i>
-                    </div>
+                <div class="platform hidden">
+                    <i class="fab fa-linux"></i>
+                    <h3>Linux</h3>
+                    <p>Скачать для Linux</p>
                 </div>
                 
-                <div class="buy-card">
-                    <h3>Коллекционное издание</h3>
-                    <p>Все бонусы премиум издания + физические коллекционные предметы</p>
-                    <div class="price">$89.99</div>
-                    <a href="#" class="btn">Купить сейчас</a>
-                    <div class="platforms">
-                        <i class="fab fa-windows platform-icon"></i>
-                        <i class="fab fa-playstation platform-icon"></i>
-                        <i class="fab fa-xbox platform-icon"></i>
-                    </div>
+                <div class="platform hidden">
+                    <i class="fab fa-steam"></i>
+                    <h3>Steam</h3>
+                    <p>Через Steam</p>
                 </div>
             </div>
             
-            <div class="subscribe-form">
-                <h3>Подпишитесь на новости</h3>
-                <p>Получайте первыми информацию об обновлениях, скидках и новом контенте для GTA Online</p>
-                <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Ваш email адрес">
-                    <button class="btn">Подписаться</button>
-                </div>
+            <div class="hidden">
+                <a href="#" class="btn">Скачать Dota 2</a>
+                <p style="margin-top: 30px; color: #aaa; font-size: 0.9rem;">Размер: около 30 ГБ. Требуется учетная запись Steam.</p>
             </div>
         </div>
     </section>
-
+    
     <!-- Футер -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Grand Theft Auto V</h3>
-                    <p>Лучшая игра в жанре action-adventure от Rockstar Games. Исследуйте, сражайтесь, выживайте в Лос-Сантосе.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Быстрые ссылки</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Главная</a></li>
-                        <li><a href="#characters">Персонажи</a></li>
-                        <li><a href="#features">Особенности</a></li>
-                        <li><a href="#gallery">Галерея</a></li>
-                        <li><a href="#buy">Купить игру</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Платформы</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Windows</a></li>
-                        <li><a href="#">PlayStation 5</a></li>
-                        <li><a href="#">PlayStation 4</a></li>
-                        <li><a href="#">Xbox Series X/S</a></li>
-                        <li><a href="#">Xbox One</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2024 Rockstar Games. Все права защищены. Grand Theft Auto и Rockstar Games являются товарными знаками Take-Two Interactive Software Inc.</p>
-                <p>Этот сайт является фан-проектом и не связан с Rockstar Games или Take-Two Interactive.</p>
-            </div>
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-steam"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
         </div>
+        
+        <p class="copyright">© 2023 Dota 2 и логотип Dota являются товарными знаками и/или зарегистрированными товарными знаками Valve Corporation. Все права защищены.</p>
     </footer>
-
+    
     <script>
-        // Мобильное меню
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+        // Анимация появления элементов при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
             });
-        });
+        }, observerOptions);
         
-        // Плавная прокрутка
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Находим все элементы с классом hidden и добавляем наблюдатель
+        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+        
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -796,16 +666,21 @@
             });
         });
         
-        // Эффект при скролле для навигации
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if(window.scrollY > 100) {
-                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
-                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+        // Эффект для навигации при прокрутке
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = 'rgba(12, 12, 12, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
             } else {
-                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
-                navbar.style.boxShadow = 'none';
+                nav.style.backgroundColor = 'rgba(12, 12, 12, 0.95)';
+                nav.style.boxShadow = 'none';
             }
+        });
+        
+        // Добавляем случайную задержку для анимации карточек
+        document.querySelectorAll('.hidden').forEach((el, index) => {
+            el.style.transitionDelay = `${(index % 5) * 0.1}s`;
         });
     </script>
 </body>
